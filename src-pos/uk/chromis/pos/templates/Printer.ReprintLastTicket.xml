@@ -39,14 +39,14 @@
         </line>
         <line></line>
 
-        #if (${ticket.ticketType} == 0)
+        #if (${ticket.ticketType} == "NORMAL")
         <line>
             <text align="left" length="15">Receipt:</text>
             <text>${ticket.printId()}</text>
         </line>
         #end
 
-        #if (${ticket.ticketType} == 1)
+        #if (${ticket.ticketType} == "REFUND")
         <line>
             <text align="left" length="15">Refund:</text>
             <text>${ticket.printId()}</text>
@@ -132,8 +132,8 @@
         </line>
         <line>
             <text align="left" length="22">Tendered:</text>
-            <text align ="right" length="20">${paymentline.printPaid()}</text>
-        </line> -->
+            <text align ="right" length="20">${paymentline.printTendered()}</text>
+        </line>
         <line>
             <text align="left" length="22">Change:</text>
             <text align ="right" length="20">${paymentline.printChange()}</text>
