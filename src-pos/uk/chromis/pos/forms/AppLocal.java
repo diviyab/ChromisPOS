@@ -25,7 +25,7 @@ import uk.chromis.beans.LocaleResources;
  *
  * @author adrianromero
  */
-public class AppLocal {
+public class AppLocal{
 
     public static final String APP_NAME = "Lemon Touch Billing";
     public static final String APP_ID = "chromispos";
