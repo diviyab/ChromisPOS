@@ -1,0 +1,12 @@
+int n = javax.swing.JOptionPane.showConfirmDialog(
+    null,
+    "Please connect your Flash Drive then press OK.",
+    "Openbravo POS Backup",
+   JOptionPane.OK_CANCEL_OPTION);
+
+if (n == 0) {
+Runtime runtime = Runtime.getRuntime();
+Process proc = runtime.exec("cmd /C start backup.bat");
+}else{
+return;
+}

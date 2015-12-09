@@ -1,0 +1,1 @@
+"C:\Project\Delivery\dist\jre1.8.0_65\bin\java" -jar "ChromisPOS-Git.jar"

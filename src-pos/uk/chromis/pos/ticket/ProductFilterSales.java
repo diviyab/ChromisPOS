@@ -61,8 +61,8 @@ public class ProductFilterSales extends javax.swing.JPanel implements EditorCrea
         m_jPriceSell.addEditorKeys(jKeys);
         
 // JG July 2014 - added for Stock count
-        m_jCboStockUnits.setModel(ListQBFModelNumber.getOverrideMandatoryNumber());
-        m_jStockUnits.addEditorKeys(jKeys);                
+//        m_jCboStockUnits.setModel(ListQBFModelNumber.getOverrideMandatoryNumber());
+//        m_jStockUnits.addEditorKeys(jKeys);                
     }
     
     /**
@@ -77,8 +77,8 @@ public class ProductFilterSales extends javax.swing.JPanel implements EditorCrea
         m_jPriceBuy.reset();
         m_jPriceSell.reset();
 // JG July 2014 - added for Stock count        
-        m_jCboStockUnits.setSelectedIndex(2);
-        m_jStockUnits.setDoubleValue(0.0);        
+      //  m_jCboStockUnits.setSelectedIndex(2);
+//        m_jStockUnits.setDoubleValue(0.0);        
         
         try {
             List catlist = m_sentcat.list();
@@ -140,16 +140,16 @@ public class ProductFilterSales extends javax.swing.JPanel implements EditorCrea
 //        afilter[11] = m_jStockUnits.getDoubleValue();
 //        afilter[10] = afilter[11] == null ? QBFCompareEnum.COMP_NONE : m_jCboStockUnits.getSelectedItem();
 
-        if (m_jStockUnits.getDoubleValue() == null) {
-            m_jCboStockUnits.setSelectedIndex(2);
-            m_jStockUnits.setDoubleValue(0.0);
-            repaint();
-            afilter[10] = QBFCompareEnum.COMP_GREATER;
-            afilter[11] = 0;
-        } else {
-            afilter[10] = m_jCboStockUnits.getSelectedItem();
-            afilter[11] = m_jStockUnits.getDoubleValue();
-        }
+//        if (m_jStockUnits.getDoubleValue() == null) {
+//            m_jCboStockUnits.setSelectedIndex(2);
+//            m_jStockUnits.setDoubleValue(0.0);
+//            repaint();
+//            afilter[10] = QBFCompareEnum.COMP_GREATER;
+//            afilter[11] = 0;
+//        } else {
+//            afilter[10] = m_jCboStockUnits.getSelectedItem();
+//            afilter[11] = m_jStockUnits.getDoubleValue();
+//        }
         
 
 
@@ -170,15 +170,12 @@ return afilter;
         m_jCboPriceBuy = new javax.swing.JComboBox();
         m_jPriceBuy = new uk.chromis.editor.JEditorCurrency();
         m_jCboPriceSell = new javax.swing.JComboBox();
-        m_jCboStockUnits = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         m_jPriceSell = new uk.chromis.editor.JEditorCurrency();
-        m_jStockUnits = new uk.chromis.editor.JEditorDouble();
 
         setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         setPreferredSize(new java.awt.Dimension(370, 200));
@@ -214,10 +211,6 @@ return afilter;
         add(m_jCboPriceSell);
         m_jCboPriceSell.setBounds(130, 130, 150, 25);
 
-        m_jCboStockUnits.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        add(m_jCboStockUnits);
-        m_jCboStockUnits.setBounds(130, 160, 150, 25);
-
         jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel1.setText(AppLocal.getIntString("label.prodbarcode")); // NOI18N
         add(jLabel1);
@@ -243,20 +236,10 @@ return afilter;
         add(jLabel6);
         jLabel6.setBounds(20, 130, 110, 25);
 
-        jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel3.setText(AppLocal.getIntString("label.stockunits")); // NOI18N
-        add(jLabel3);
-        jLabel3.setBounds(20, 160, 110, 25);
-
         m_jPriceSell.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         m_jPriceSell.setPreferredSize(new java.awt.Dimension(130, 25));
         add(m_jPriceSell);
         m_jPriceSell.setBounds(290, 130, 130, 25);
-
-        m_jStockUnits.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        m_jStockUnits.setPreferredSize(new java.awt.Dimension(130, 25));
-        add(m_jStockUnits);
-        m_jStockUnits.setBounds(290, 160, 130, 25);
     }// </editor-fold>//GEN-END:initComponents
 
     private void m_jCboPriceBuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_m_jCboPriceBuyActionPerformed
@@ -267,17 +250,14 @@ return afilter;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JComboBox m_jCategory;
     private javax.swing.JComboBox m_jCboPriceBuy;
     private javax.swing.JComboBox m_jCboPriceSell;
-    private javax.swing.JComboBox m_jCboStockUnits;
     private uk.chromis.editor.JEditorCurrency m_jPriceBuy;
     private uk.chromis.editor.JEditorCurrency m_jPriceSell;
-    private uk.chromis.editor.JEditorDouble m_jStockUnits;
     private uk.chromis.editor.JEditorString m_jtxtBarCode;
     private uk.chromis.editor.JEditorString m_jtxtName;
     // End of variables declaration//GEN-END:variables

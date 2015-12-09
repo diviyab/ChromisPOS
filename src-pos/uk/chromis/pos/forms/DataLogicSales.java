@@ -750,13 +750,21 @@ public class DataLogicSales extends BeanFactoryDataSingle {
                 + "FROM STOCKCURRENT RIGHT OUTER JOIN PRODUCTS ON (STOCKCURRENT.PRODUCT = PRODUCTS.ID) "
                 + "WHERE ?(QBF_FILTER) "
                 + "ORDER BY REFERENCE, NAME",
-                new String[]{"NAME", "PRICEBUY", "PRICESELL", "CATEGORY", "CODE", "UNITS"}), new SerializerWriteBasic(new Datas[]{
+//                new String[]{"NAME", "PRICEBUY", "PRICESELL", "CATEGORY", "CODE", "UNITS"}), new SerializerWriteBasic(new Datas[]{
+//                    Datas.OBJECT, Datas.STRING,
+//                    Datas.OBJECT, Datas.DOUBLE,
+//                    Datas.OBJECT, Datas.DOUBLE,
+//                    Datas.OBJECT, Datas.STRING,
+//                    Datas.OBJECT, Datas.STRING,
+//                    Datas.OBJECT, Datas.DOUBLE,}), ProductInfoExt.getSerializerRead());
+                
+                //Bala Without stock filter
+                new String[]{"NAME", "PRICEBUY", "PRICESELL", "CATEGORY", "CODE"}), new SerializerWriteBasic(new Datas[]{
                     Datas.OBJECT, Datas.STRING,
                     Datas.OBJECT, Datas.DOUBLE,
                     Datas.OBJECT, Datas.DOUBLE,
                     Datas.OBJECT, Datas.STRING,
-                    Datas.OBJECT, Datas.STRING,
-                    Datas.OBJECT, Datas.DOUBLE,}), ProductInfoExt.getSerializerRead());
+                    Datas.OBJECT, Datas.STRING,}), ProductInfoExt.getSerializerRead());
     }
 
     // Products list
@@ -769,7 +777,37 @@ public class DataLogicSales extends BeanFactoryDataSingle {
 // JG July 2014 StockUnits
     // JG uniCenta June 2014 includes StockUnits 
     public SentenceList getProductListNormal() {
-        return new StaticSentence(s, new QBFBuilder(
+//        return new StaticSentence(s, new QBFBuilder(
+//                "SELECT "
+//                + "ID, REFERENCE, CODE, CODETYPE, NAME, " //1,2,3,4
+//                + "ISCOM, ISSCALE, " //5,6
+//                + "PRICEBUY, PRICESELL, " //7,8
+//                + "TAXCAT, CATEGORY, " //9,10
+//                + "ATTRIBUTESET_ID, " //11
+//                + "IMAGE, ATTRIBUTES, " //12,13
+//                + "ISKITCHEN, ISSERVICE, " //14,15
+//                + "DISPLAY, " //16
+//                + "ISVPRICE, ISVERPATRIB, " //17,18
+//                + "TEXTTIP, WARRANTY, " //19,20
+//                + "STOCKCURRENT.UNITS, " //21
+//                + "ALIAS, " //22
+//                + "ALWAYSAVAILABLE, " //23 
+//                + "DISCOUNTED, CANDISCOUNT, "
+//                + "ISPACK, PACKQUANTITY, PACKPRODUCT "
+//                + "FROM STOCKCURRENT RIGHT OUTER JOIN PRODUCTS ON (STOCKCURRENT.PRODUCT = PRODUCTS.ID) "
+//                + "WHERE ISCOM = " + s.DB.FALSE() + " AND ?(QBF_FILTER) "
+//                + "ORDER BY REFERENCE, NAME",
+//                new String[]{"NAME", "PRICEBUY", "PRICESELL", "CATEGORY", "CODE", "UNITS"}), new SerializerWriteBasic(new Datas[]{
+//                    Datas.OBJECT, Datas.STRING,
+//                    Datas.OBJECT, Datas.DOUBLE,
+//                    Datas.OBJECT, Datas.DOUBLE,
+//                    Datas.OBJECT, Datas.STRING,
+//                    Datas.OBJECT, Datas.STRING,
+//                    Datas.OBJECT, Datas.DOUBLE
+//                }), ProductInfoExt.getSerializerRead());
+        
+        //Bala Filter withour stock
+                return new StaticSentence(s, new QBFBuilder(
                 "SELECT "
                 + "ID, REFERENCE, CODE, CODETYPE, NAME, " //1,2,3,4
                 + "ISCOM, ISSCALE, " //5,6
@@ -789,13 +827,12 @@ public class DataLogicSales extends BeanFactoryDataSingle {
                 + "FROM STOCKCURRENT RIGHT OUTER JOIN PRODUCTS ON (STOCKCURRENT.PRODUCT = PRODUCTS.ID) "
                 + "WHERE ISCOM = " + s.DB.FALSE() + " AND ?(QBF_FILTER) "
                 + "ORDER BY REFERENCE, NAME",
-                new String[]{"NAME", "PRICEBUY", "PRICESELL", "CATEGORY", "CODE", "UNITS"}), new SerializerWriteBasic(new Datas[]{
+                new String[]{"NAME", "PRICEBUY", "PRICESELL", "CATEGORY", "CODE"}), new SerializerWriteBasic(new Datas[]{
                     Datas.OBJECT, Datas.STRING,
                     Datas.OBJECT, Datas.DOUBLE,
                     Datas.OBJECT, Datas.DOUBLE,
                     Datas.OBJECT, Datas.STRING,
-                    Datas.OBJECT, Datas.STRING,
-                    Datas.OBJECT, Datas.DOUBLE
+                    Datas.OBJECT, Datas.STRING
                 }), ProductInfoExt.getSerializerRead());
     }
 

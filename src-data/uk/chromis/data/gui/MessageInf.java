@@ -209,7 +209,7 @@ public class MessageInf {
         } else if (iSignalWord == SGN_CAUTION) {
             sb.append(LocalRes.getIntString("sgn.caution"));
         } else if (iSignalWord == SGN_NOTICE) {
-            sb.append(LocalRes.getIntString("sgn.notice"));
+           // sb.append(LocalRes.getIntString("sgn.notice"));
         } else if (iSignalWord == SGN_IMPORTANT) {
             sb.append(LocalRes.getIntString("sgn.important"));
         } else if (iSignalWord == SGN_SUCCESS) {

@@ -70,7 +70,7 @@
 	<!-- <cat-width value="600" /> -->
         
 	<!-- Maximum Category height for 1280x1024 in Full Screen mode -->
-	<!--  <cat-height value="640" /> -->
+	  <cat-height value="200" /> 
 <!-- END Product Area Size -->
 
 <!-- SET Product Button Sizes ****************************************** -->

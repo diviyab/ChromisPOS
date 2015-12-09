@@ -187,7 +187,7 @@ public class DataLogicCustomers extends BeanFactoryDataSingle {
     //JG July 2014 - Amend to PHONE from PHONE2
         public SentenceList getCustomerList() {
         return new StaticSentence(s
-            , new QBFBuilder("SELECT ID, TAXID, SEARCHKEY, NAME, POSTAL, EMAIL, PHONE FROM CUSTOMERS WHERE VISIBLE = " + s.DB.TRUE() + " AND ?(QBF_FILTER) ORDER BY NAME", new String[] {"TAXID", "SEARCHKEY", "NAME", "POSTAL", "PHONE", "EMAIL"})
+            , new QBFBuilder("SELECT ID, TAXID, SEARCHKEY, NAME, POSTAL, EMAIL, PHONE FROM CUSTOMERS WHERE VISIBLE = " + s.DB.TRUE() + " AND ?(QBF_FILTER) ORDER BY NAME", new String[] {"TAXID", "SEARCHKEY", "NAME", "POSTAL", "PHONE2", "EMAIL"})
             , new SerializerWriteBasic(new Datas[] {
                 Datas.OBJECT, Datas.STRING, 
                 Datas.OBJECT, Datas.STRING, 

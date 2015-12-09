@@ -58,6 +58,7 @@ public class JMessageDialog extends javax.swing.JDialog {
     public static void showMessage(Component parent, MessageInf inf) {
         
         Window window = getWindow(parent);      
+        String infoMsg = new String();
         
         JMessageDialog myMsg;
         if (window instanceof Frame) { 
@@ -73,13 +74,16 @@ public class JMessageDialog extends javax.swing.JDialog {
         
         myMsg.jlblIcon.setIcon(inf.getSignalWordIcon());
         myMsg.jlblErrorCode.setText(inf.getErrorCodeMsg());
-        myMsg.jlblMessage.setText("<html>" + inf.getMessageMsg());
+        
+        infoMsg = inf.getMessageMsg() + "Click Info for detail";
+        
         
         // Capturamos el texto de la excepcion...
         if (inf.getCause() == null) {
             myMsg.jtxtException.setText(null);
         } else {            
             StringBuilder sb = new StringBuilder(); 
+            String cause  = new String() ; 
             
             if (inf.getCause() instanceof Throwable) {
                 Throwable t = (Throwable) inf.getCause();
@@ -111,7 +115,17 @@ public class JMessageDialog extends javax.swing.JDialog {
                 sb.append(": \n");
                 sb.append(inf.getCause().toString());
             }
-            myMsg.jtxtException.setText(sb.toString());  
+            myMsg.jtxtException.setText(sb.toString()); 
+            
+            cause  = sb.toString();
+            if(cause.contains("cannot be null")){
+                cause = "Mandatory field is empty. ";
+            }
+            else if(cause.contains("Duplicate")){
+                cause = "Record already exist, correct the duplicate record. ";
+            }
+            
+            myMsg.jlblMessage.setText("<html>" + cause + infoMsg);
         }       
         myMsg.jtxtException.setCaretPosition(0);            
         

@@ -40,7 +40,7 @@
         
         <insert tableName="APPLICATIONS">
             <column name="ID" value="chromispos"/>
-            <column name="NAME" value="Chromis POS"/>
+            <column name="NAME" value="Lemon Touch POS"/>
             <column name="VERSION" value="0.30"/>          
         </insert>               
     </changeSet>    
